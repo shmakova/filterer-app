@@ -20,10 +20,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="470"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-TB-Gjf">
+                                <rect key="frame" x="74" y="489" width="153" height="30"/>
+                                <state key="normal" title="Show Filtered Image"/>
+                                <state key="selected" title="Show Before Image"/>
+                                <connections>
+                                    <action selector="inImageToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7A1-as-tuk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="imageToggle" destination="4Gz-TB-Gjf" id="eAX-pf-0ry"/>
                         <outlet property="imageView" destination="iRQ-6N-1bk" id="mdI-sq-9bR"/>
                     </connections>
                 </viewController>

@@ -9,8 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var filteredImage: UIImage?
 
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var imageToggle: UIButton!
+    
+    @IBAction func inImageToggle(sender: UIButton) {
+        if imageToggle.selected {
+            let image = UIImage(named: "sample")!
+            imageView.image = image
+            imageToggle.selected = false
+        } else {
+            imageView.image = filteredImage
+            imageToggle.selected = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +56,7 @@ class ViewController: UIViewController {
             }
         }
         
-        let result = rgbaImage.toUIImage()
-        imageView.image = result
+        filteredImage = rgbaImage.toUIImage()
     }
 
     override func didReceiveMemoryWarning() {
