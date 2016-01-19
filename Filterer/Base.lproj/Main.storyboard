@@ -16,20 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-6N-1bk">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="470"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-TB-Gjf">
-                                <rect key="frame" x="74" y="489" width="153" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Gz-TB-Gjf">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vdY-jL-Dwh"/>
+                                </constraints>
                                 <state key="normal" title="Show Filtered Image"/>
                                 <state key="selected" title="Show Before Image"/>
                                 <connections>
                                     <action selector="inImageToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7A1-as-tuk"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-6N-1bk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4Gz-TB-Gjf" secondAttribute="trailing" id="9E5-ud-htS"/>
+                            <constraint firstAttribute="trailing" secondItem="iRQ-6N-1bk" secondAttribute="trailing" id="EAG-Pe-YfH"/>
+                            <constraint firstItem="iRQ-6N-1bk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MOe-5y-HDw"/>
+                            <constraint firstItem="iRQ-6N-1bk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WVv-rB-qET"/>
+                            <constraint firstItem="4Gz-TB-Gjf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cC6-EI-if8"/>
+                            <constraint firstItem="4Gz-TB-Gjf" firstAttribute="top" secondItem="iRQ-6N-1bk" secondAttribute="bottom" id="f2K-IU-2TO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Gz-TB-Gjf" secondAttribute="bottom" id="nQu-ZA-RWa"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageToggle" destination="4Gz-TB-Gjf" id="eAX-pf-0ry"/>
