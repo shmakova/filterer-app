@@ -13,6 +13,7 @@
 		3B4CAB5C1C4D4DF10072F3D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4CAB5B1C4D4DF10072F3D5 /* Assets.xcassets */; };
 		3B4CAB5F1C4D4DF10072F3D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4CAB5D1C4D4DF10072F3D5 /* LaunchScreen.storyboard */; };
 		3B4CAB671C4D53090072F3D5 /* RGBAImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4CAB661C4D53090072F3D5 /* RGBAImage.swift */; };
+		3B56EBC51C57E081004AD069 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56EBC41C57E081004AD069 /* ImageProcessor.swift */; };
 		3B7B953B1C554888008DA905 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B953A1C554888008DA905 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		3B4CAB5E1C4D4DF10072F3D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B4CAB601C4D4DF10072F3D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B4CAB661C4D53090072F3D5 /* RGBAImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBAImage.swift; sourceTree = "<group>"; };
+		3B56EBC41C57E081004AD069 /* ImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		3B7B953A1C554888008DA905 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4CAB541C4D4DF10072F3D5 /* AppDelegate.swift */,
+				3B56EBC41C57E081004AD069 /* ImageProcessor.swift */,
 				3B4CAB661C4D53090072F3D5 /* RGBAImage.swift */,
 				3B4CAB561C4D4DF10072F3D5 /* ViewController.swift */,
 				3B4CAB581C4D4DF10072F3D5 /* Main.storyboard */,
@@ -144,6 +147,7 @@
 			files = (
 				3B4CAB571C4D4DF10072F3D5 /* ViewController.swift in Sources */,
 				3B4CAB671C4D53090072F3D5 /* RGBAImage.swift in Sources */,
+				3B56EBC51C57E081004AD069 /* ImageProcessor.swift in Sources */,
 				3B4CAB551C4D4DF10072F3D5 /* AppDelegate.swift in Sources */,
 				3B7B953B1C554888008DA905 /* TableViewController.swift in Sources */,
 			);

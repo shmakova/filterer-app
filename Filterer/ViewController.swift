@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var filteredImage: UIImage?
+    
+    var originalImage: UIImage?
+    
+    var imageProcessor: ImageProcessor?
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -23,6 +27,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageProcessor = ImageProcessor(image: imageView.image!)
+        originalImage = imageView.image
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         secondaryMenu.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -64,6 +70,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
+            originalImage = imageView.image
+            imageProcessor = ImageProcessor(image: imageView.image!)
         }
     }
     
@@ -82,8 +90,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    @IBAction func onGrayScale(sender: UIButton) {
+        filteredImage = imageProcessor!.apply("Gray Scale")
+        imageView.image = filteredImage
+    }
+    
+    @IBAction func onSepia(sender: UIButton) {
+        filteredImage = imageProcessor!.apply("Sepia")
+        imageView.image = filteredImage
+    }
+    
+    @IBAction func onNegative(sender: UIButton) {
+        filteredImage = imageProcessor!.apply("Negative")
+        imageView.image = filteredImage
+    }
+
+    
+    @IBAction func onContrast(sender: UIButton) {
+        filteredImage = imageProcessor!.apply("Contrast 100%")
+        imageView.image = filteredImage
+    }
+    
+    @IBAction func onBrightness(sender: UIButton) {
+        filteredImage = imageProcessor!.apply("Brightness 2x")
+        imageView.image = filteredImage
+    }
+
+    @IBAction func onCompare(sender: UIButton) {
+        imageView.image = originalImage
+    }
+    
     @IBAction func onShare(sender: AnyObject) {
-        let activityController = UIActivityViewController(activityItems: ["Check out app", imageView.image!], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
         presentViewController(activityController, animated: true, completion: nil)
     }
     
