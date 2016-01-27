@@ -70,6 +70,9 @@
                                                         <exclude reference="Wuc-dM-wbp"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="onCompare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zY-4C-2BZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-zy-Dgb">
                                                 <rect key="frame" x="487" y="0.0" width="113" height="44"/>
@@ -112,6 +115,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomMenu" destination="qc3-Uw-eKN" id="YfC-9L-8Id"/>
+                        <outlet property="compareButton" destination="JIF-3X-tsy" id="4Fb-nY-QzX"/>
                         <outlet property="filterButton" destination="ugh-Rx-Oul" id="i7f-CZ-HZe"/>
                         <outlet property="imageView" destination="iRQ-6N-1bk" id="mdI-sq-9bR"/>
                         <outlet property="secondaryMenu" destination="vo5-9p-W2V" id="gLP-Qf-YCM"/>
@@ -139,7 +143,7 @@
                                         <action selector="onSepia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aIq-it-p1r"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-r8-CBT">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-r8-CBT">
                                     <rect key="frame" x="227" y="0.0" width="113" height="128"/>
                                     <state key="normal" title="Negative"/>
                                     <connections>
@@ -147,7 +151,7 @@
                                         <action selector="onNegative:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ui7-ny-AGU"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-FX-VaQ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-FX-VaQ">
                                     <rect key="frame" x="340" y="0.0" width="114" height="128"/>
                                     <state key="normal" title="Contrast 100%"/>
                                     <connections>

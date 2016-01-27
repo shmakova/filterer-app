@@ -24,8 +24,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var filterButton: UIButton!
     
+    @IBOutlet weak var compareButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        compareButton.enabled = false
         
         imageProcessor = ImageProcessor(image: imageView.image!)
         originalImage = imageView.image
@@ -90,34 +93,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    @IBAction func onGrayScale(sender: UIButton) {
-        filteredImage = imageProcessor!.apply("Gray Scale")
+    func filterApply(filterName: String) {
+        compareButton.enabled = true
+        compareButton.selected = false
+        filteredImage = imageProcessor!.apply(filterName)
         imageView.image = filteredImage
+    }
+    
+    @IBAction func onGrayScale(sender: UIButton) {
+        filterApply("Gray Scale")
     }
     
     @IBAction func onSepia(sender: UIButton) {
-        filteredImage = imageProcessor!.apply("Sepia")
-        imageView.image = filteredImage
+        filterApply("Sepia")
     }
     
     @IBAction func onNegative(sender: UIButton) {
-        filteredImage = imageProcessor!.apply("Negative")
-        imageView.image = filteredImage
+        filterApply("Negative")
     }
 
     
     @IBAction func onContrast(sender: UIButton) {
-        filteredImage = imageProcessor!.apply("Contrast 100%")
-        imageView.image = filteredImage
+        filterApply("Contrast 100%")
     }
     
     @IBAction func onBrightness(sender: UIButton) {
-        filteredImage = imageProcessor!.apply("Brightness 2x")
-        imageView.image = filteredImage
+        filterApply("Brightness 2x")
     }
 
     @IBAction func onCompare(sender: UIButton) {
-        imageView.image = originalImage
+        if (sender.selected) {
+            imageView.image = filteredImage
+            sender.selected = false
+        } else {
+            imageView.image = originalImage
+            sender.selected = true
+        }
     }
     
     @IBAction func onShare(sender: AnyObject) {
