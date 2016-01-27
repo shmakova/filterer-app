@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     
     var filteredImage: UIImage?
     
@@ -34,6 +34,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         originalImage = imageView.image
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         secondaryMenu.translatesAutoresizingMaskIntoConstraints = false
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("longPress:"))
+        longPressGestureRecognizer.minimumPressDuration = 0.05
+        imageView.userInteractionEnabled = true
+        imageView.addGestureRecognizer(longPressGestureRecognizer)
+    }
+    
+    func longPress(gesture: UITapGestureRecognizer) {
+        if (filteredImage != nil) {
+            compareButton.selected = false
+            
+            if gesture.state == .Began {
+                imageView.image = originalImage
+            } else if gesture.state == .Ended {
+                imageView.image = filteredImage
+            }
+        }
     }
 
     @IBAction func onNewPhoto(sender: AnyObject) {
