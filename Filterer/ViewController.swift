@@ -26,6 +26,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var compareButton: UIButton!
     
+    @IBOutlet weak var overlayLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         compareButton.enabled = false
@@ -46,9 +48,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             compareButton.selected = false
             
             if gesture.state == .Began {
-                imageView.image = originalImage
+                showOriginalImage()
             } else if gesture.state == .Ended {
-                imageView.image = filteredImage
+                showFilteredImage()
             }
         }
     }
@@ -68,6 +70,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+    func showOriginalImage() {
+        imageView.image = originalImage
+        imageView.addSubview(overlayLabel)
+        overlayLabel.hidden = false
+    }
+    
+    func showFilteredImage() {
+        imageView.image = filteredImage
+        overlayLabel.hidden = true
     }
     
     func showCamera() {
@@ -114,7 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         compareButton.enabled = true
         compareButton.selected = false
         filteredImage = imageProcessor!.apply(filterName)
-        imageView.image = filteredImage
+        showFilteredImage()
     }
     
     @IBAction func onGrayScale(sender: UIButton) {
@@ -140,10 +153,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func onCompare(sender: UIButton) {
         if (sender.selected) {
-            imageView.image = filteredImage
+            showFilteredImage()
             sender.selected = false
         } else {
-            imageView.image = originalImage
+            showOriginalImage()
             sender.selected = true
         }
     }
