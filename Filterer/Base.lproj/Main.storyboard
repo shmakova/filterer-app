@@ -148,38 +148,39 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0Gn-vu-hxH">
                             <rect key="frame" x="0.0" y="0.0" width="566" height="128"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-qu-Qy1">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-qu-Qy1">
                                     <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
-                                    <state key="normal" title="Gray Scale"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                    <state key="normal" image="grayscale"/>
                                     <connections>
                                         <action selector="onGrayScale:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SMg-4l-gJd"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-f1-1jh">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-f1-1jh">
                                     <rect key="frame" x="113" y="0.0" width="114" height="128"/>
-                                    <state key="normal" title="Sepia"/>
+                                    <state key="normal" image="sepia"/>
                                     <connections>
                                         <action selector="onSepia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aIq-it-p1r"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-r8-CBT">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci2-r8-CBT">
                                     <rect key="frame" x="227" y="0.0" width="113" height="128"/>
-                                    <state key="normal" title="Negative"/>
+                                    <state key="normal" image="negative"/>
                                     <connections>
                                         <action selector="onContrast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kvr-Vw-eTW"/>
                                         <action selector="onNegative:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ui7-ny-AGU"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-FX-VaQ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-FX-VaQ">
                                     <rect key="frame" x="340" y="0.0" width="114" height="128"/>
-                                    <state key="normal" title="Contrast 100%"/>
+                                    <state key="normal" image="contrast"/>
                                     <connections>
                                         <action selector="onContrast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVb-1I-g5S"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B48-fL-iSZ">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B48-fL-iSZ">
                                     <rect key="frame" x="453" y="0.0" width="113" height="128"/>
-                                    <state key="normal" title="Brightness 2x"/>
+                                    <state key="normal" image="brightness"/>
                                     <connections>
                                         <action selector="onBrightness:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eEq-Kv-Z7k"/>
                                     </connections>
@@ -255,6 +256,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="brightness" width="75" height="75"/>
+        <image name="contrast" width="75" height="75"/>
+        <image name="grayscale" width="75" height="75"/>
+        <image name="negative" width="75" height="75"/>
         <image name="sample" width="75" height="75"/>
+        <image name="sepia" width="75" height="75"/>
     </resources>
 </document>
