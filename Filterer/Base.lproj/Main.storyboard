@@ -16,6 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-6N-1bk">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="vHL-lE-oIl">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qc3-Uw-eKN">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <subviews>
@@ -39,7 +47,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugh-Rx-Oul">
-                                                <rect key="frame" x="211" y="0.0" width="98.5" height="44"/>
+                                                <rect key="frame" x="211.5" y="0.0" width="98.5" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="9L4-F3-cZi"/>
                                                     <constraint firstAttribute="height" constant="44" id="djc-N9-Ecn"/>
@@ -71,7 +79,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aas-zy-Dgb">
-                                                <rect key="frame" x="487" y="0.0" width="112.5" height="44"/>
+                                                <rect key="frame" x="487.5" y="0.0" width="112.5" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Arv-KI-GOC"/>
                                                     <constraint firstAttribute="height" constant="44" id="yK6-tb-YIv"/>
@@ -103,10 +111,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-6N-1bk">
-                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -116,8 +120,12 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qc3-Uw-eKN" secondAttribute="bottom" id="HUd-sm-qIm"/>
                             <constraint firstItem="iRQ-6N-1bk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="I64-lq-zyk"/>
                             <constraint firstItem="iRQ-6N-1bk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Vh0-K5-tIC"/>
+                            <constraint firstItem="vHL-lE-oIl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WyT-hg-gfp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vHL-lE-oIl" secondAttribute="bottom" constant="44" id="ZJz-kV-SzC"/>
                             <constraint firstItem="qc3-Uw-eKN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="abt-ww-60u"/>
+                            <constraint firstItem="vHL-lE-oIl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gGo-2O-IbL"/>
                             <constraint firstAttribute="trailing" secondItem="ec2-Rt-LIu" secondAttribute="trailing" id="hmH-Ma-MSP"/>
+                            <constraint firstAttribute="trailing" secondItem="vHL-lE-oIl" secondAttribute="trailing" id="k3B-GP-YTd"/>
                             <constraint firstAttribute="trailing" secondItem="qc3-Uw-eKN" secondAttribute="trailing" id="qZl-JD-6A3"/>
                             <constraint firstItem="ec2-Rt-LIu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w0w-pe-CfL"/>
                         </constraints>
@@ -129,6 +137,7 @@
                         <outlet property="imageView" destination="iRQ-6N-1bk" id="mdI-sq-9bR"/>
                         <outlet property="overlayLabel" destination="ec2-Rt-LIu" id="pqV-ae-2MG"/>
                         <outlet property="secondaryMenu" destination="vo5-9p-W2V" id="gLP-Qf-YCM"/>
+                        <outlet property="topImageView" destination="vHL-lE-oIl" id="Hj1-R5-0tj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

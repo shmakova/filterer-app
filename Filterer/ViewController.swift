@@ -18,6 +18,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var topImageView: UIImageView!
+
     @IBOutlet weak var bottomMenu: UIView!
     
     @IBOutlet var secondaryMenu: UIView!
@@ -73,14 +75,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func showOriginalImage() {
-        imageView.image = originalImage
-        imageView.addSubview(overlayLabel)
-        overlayLabel.hidden = false
+        topImageView.alpha = 0
+        topImageView.image = originalImage
+        
+        UIView.animateWithDuration(0.4, animations: {
+            self.topImageView.alpha = 1
+            }) { completed in
+                if completed == true {
+                    self.imageView.image = self.originalImage
+                    self.topImageView.alpha = 0
+                    self.imageView.addSubview(self.overlayLabel)
+                    self.overlayLabel.hidden = false
+                }
+        }
     }
     
     func showFilteredImage() {
-        imageView.image = filteredImage
-        overlayLabel.hidden = true
+        topImageView.alpha = 0
+        topImageView.image = filteredImage
+        
+        UIView.animateWithDuration(0.4, animations: {
+            self.topImageView.alpha = 1
+            }) { completed in
+                if completed == true {
+                    self.imageView.image = self.filteredImage
+                    self.topImageView.alpha = 0
+                    self.overlayLabel.hidden = true
+                }
+        }
     }
     
     func showCamera() {
@@ -179,6 +201,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         view.layoutIfNeeded()
 
         self.secondaryMenu.alpha = 0
+        
         UIView.animateWithDuration(0.4) {
             self.secondaryMenu.alpha = 1.0
         }
