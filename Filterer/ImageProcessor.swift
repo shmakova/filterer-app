@@ -37,15 +37,15 @@ public class ImageProcessor {
     func getFilterByName(filterName: String) -> Filter? {
         switch filterName {
             case "Gray Scale":
-                return GrayScaleFilter();
+                return GrayScaleFilter(intensity: 100);
             case "Sepia":
-                return SepiaFilter();
+                return SepiaFilter(intensity: 100);
             case "Negative":
-                return NegativeFilter();
+                return NegativeFilter(intensity: 100);
             case "Contrast 100%":
-                return ContrastFilter(contrastLevel: 100);
+                return ContrastFilter(intensity: 100);
             case "Brightness 2x":
-                return BrightnessFilter(brightnessLevel: 2.0);
+                return BrightnessFilter(intensity: 100);
         default: print("Bad filter: ", filterName);
             return nil;
         }
@@ -61,12 +61,14 @@ public class CoefFilter: Filter {
     var greenCoefs: Array<Double> = [1.0, 1.0, 1.0]
     var blueCoefs: Array<Double> = [1.0, 1.0, 1.0]
     var alphaCoef: Double = 1.0
+    var intensity: Double = 1.0
     
-    init(redCoefs: Array<Double>, greenCoefs: Array<Double>, blueCoefs: Array<Double>, alphaCoef: Double) {
+    init(redCoefs: Array<Double>, greenCoefs: Array<Double>, blueCoefs: Array<Double>, alphaCoef: Double, intensity: Int) {
         self.redCoefs = redCoefs
         self.greenCoefs = greenCoefs
         self.blueCoefs = blueCoefs
         self.alphaCoef = alphaCoef
+        self.intensity = Double(intensity) / 100.0
     }
     
     init() {}
@@ -95,28 +97,36 @@ public class CoefFilter: Filter {
 }
 
 public class GrayScaleFilter: CoefFilter {
-    override init() {
+    init(intensity: Int) {
         super.init(
             redCoefs: [0.2126, 0.2126, 0.2126],
             greenCoefs: [0.7152, 0.7152, 0.7152],
             blueCoefs: [0.0722, 0.0722, 0.0722],
-            alphaCoef: 1.0
+            alphaCoef: 1.0,
+            intensity: intensity
         )
     }
 }
 
 public class SepiaFilter: CoefFilter {
-    override init() {
+    init(intensity: Int) {
         super.init(
             redCoefs: [0.393, 0.349, 0.272],
             greenCoefs: [0.769, 0.686, 0.534],
             blueCoefs: [0.189, 0.168, 0.131],
-            alphaCoef: 1.0
+            alphaCoef: 1.0,
+            intensity: intensity
         )
     }
 }
 
 public class NegativeFilter: Filter {
+    var intensity: Double = 1.0
+    
+    init(intensity: Int) {
+        self.intensity = Double(intensity) / 100.0
+    }
+    
     public func apply(imageRGBA: RGBAImage) -> RGBAImage {
         for y in 0..<imageRGBA.height {
             for x in 0..<imageRGBA.width {
@@ -135,16 +145,16 @@ public class NegativeFilter: Filter {
 
 
 public class ContrastFilter: Filter {
-    var contrastLevel: Int
+    var intensity: Double = 1.0
     
-    public init(contrastLevel: Int) {
-        self.contrastLevel = contrastLevel * 128 / 100
+    public init(intensity: Int) {
+        self.intensity = Double(intensity * 256 - 128) / 100.0
     }
     
     public func apply(imageRGBA: RGBAImage) -> RGBAImage {
         var factor: Double
-        let factorNumerator = Double(259 * (contrastLevel + 255))
-        let factorDenumerator = Double(255 * (259 - contrastLevel))
+        let factorNumerator = Double(259 * (intensity + 255))
+        let factorDenumerator = Double(255 * (259 - intensity))
         factor = factorNumerator / factorDenumerator
         
         for y in 0..<imageRGBA.height {
@@ -169,10 +179,10 @@ public class ContrastFilter: Filter {
 }
 
 public class BrightnessFilter: Filter {
-    var brightnessLevel: Double
+    var intensity: Double = 1.0
     
-    public init(brightnessLevel: Double) {
-        self.brightnessLevel = brightnessLevel
+    public init(intensity: Int) {
+        self.intensity = Double(intensity) / 100.0
     }
     
     public func apply(imageRGBA: RGBAImage) -> RGBAImage {
@@ -183,9 +193,9 @@ public class BrightnessFilter: Filter {
                 let red = Double(pixel.red)
                 let green = Double(pixel.green)
                 let blue = Double(pixel.blue)
-                let newRed = red * brightnessLevel
-                let newGreen = green * brightnessLevel
-                let newBlue = blue * brightnessLevel
+                let newRed = red * intensity
+                let newGreen = green * intensity
+                let newBlue = blue * intensity
                 pixel.red = UInt8(max(0, min(255, newRed)))
                 pixel.green = UInt8(max(0, min(255, newGreen)))
                 pixel.blue = UInt8(max(0, min(255, newBlue)))
