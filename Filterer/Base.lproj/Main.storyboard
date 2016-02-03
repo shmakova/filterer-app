@@ -210,7 +210,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="302" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-lu-I7s">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-lu-I7s">
                             <rect key="frame" x="-2" y="0.0" width="306" height="129"/>
                             <connections>
                                 <action selector="onSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="9Qh-0t-fNg"/>

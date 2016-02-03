@@ -15,6 +15,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var originalImage: UIImage?
     
     var imageProcessor: ImageProcessor?
+    
+    var currentFilter: Filter?
+    
+    var currentIntensity: Double = 100
 
     @IBOutlet weak var imageView: UIImageView!
     
@@ -81,6 +85,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(actionSheet, animated: true, completion: nil)
+        hideSliderMenu()
+        editButton.enabled = false
+        compareButton.enabled = false
     }
     
     func showOriginalImage() {
@@ -153,33 +160,44 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    func filterApply(filterName: String) {
+    func filterApply() {
         editButton.enabled = true
         compareButton.enabled = true
         compareButton.selected = false
-        filteredImage = imageProcessor!.apply(filterName)
+        filteredImage = imageProcessor!.apply(currentFilter!)
         showFilteredImage()
     }
     
     @IBAction func onGrayScale(sender: UIButton) {
-        filterApply("Gray Scale")
+        currentIntensity = 100
+        currentFilter = GrayScaleFilter(intensity: currentIntensity)
+        filterApply()
     }
     
     @IBAction func onSepia(sender: UIButton) {
-        filterApply("Sepia")
+        currentIntensity = 100
+        currentFilter = SepiaFilter(intensity: currentIntensity)
+        filterApply()
+        
     }
     
     @IBAction func onNegative(sender: UIButton) {
-        filterApply("Negative")
+        currentIntensity = 100
+        currentFilter = NegativeFilter(intensity: currentIntensity)
+        filterApply()
     }
 
     
     @IBAction func onContrast(sender: UIButton) {
-        filterApply("Contrast 100%")
+        currentIntensity = 200
+        currentFilter = ContrastFilter(intensity: currentIntensity)
+        filterApply()
     }
     
     @IBAction func onBrightness(sender: UIButton) {
-        filterApply("Brightness 2x")
+        currentIntensity = 100
+        currentFilter = BrightnessFilter(intensity: currentIntensity)
+        filterApply()
     }
     
     @IBAction func onEdit(sender: UIButton) {
@@ -192,10 +210,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func onSlider(sender: UISlider) {
+        currentIntensity = Double(sender.value)
+        currentFilter?.intensity = currentIntensity
+        filterApply()
     }
     
     func showSliderMenu() {
         editButton.selected = true
+        intensitySlider.value = Float(currentIntensity)
         hideSecondaryMenu()
         
         view.addSubview(sliderMenu)
