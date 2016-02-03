@@ -26,13 +26,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var filterButton: UIButton!
     
+    @IBOutlet weak var editButton: UIButton!
+    
     @IBOutlet weak var compareButton: UIButton!
     
     @IBOutlet weak var overlayLabel: UILabel!
     
+    @IBOutlet weak var intensitySlider: UISlider!
+    
+    @IBOutlet var sliderMenu: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         compareButton.enabled = false
+        editButton.enabled = false
         
         imageProcessor = ImageProcessor(image: imageView.image!)
         originalImage = imageView.image
@@ -172,6 +179,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func onBrightness(sender: UIButton) {
         filterApply("Brightness 2x")
     }
+    
+    @IBAction func onEdit(sender: UIButton) {
+    }
+    
+    
+    @IBAction func onSlider(sender: UISlider) {
+    }
+    
 
     @IBAction func onCompare(sender: UIButton) {
         if (sender.selected) {
