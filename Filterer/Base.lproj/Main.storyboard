@@ -211,10 +211,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-lu-I7s">
-                            <rect key="frame" x="-2" y="0.0" width="306" height="45"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="x2T-JB-NRG"/>
-                            </constraints>
+                            <rect key="frame" x="-2" y="0.0" width="306" height="129"/>
                             <connections>
                                 <action selector="onSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="9Qh-0t-fNg"/>
                             </connections>
@@ -222,10 +219,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="HcM-lu-I7s" secondAttribute="trailing" id="S0F-QF-H0D"/>
-                        <constraint firstItem="HcM-lu-I7s" firstAttribute="top" secondItem="jKp-a9-lLM" secondAttribute="top" id="Ymk-v3-WKG"/>
-                        <constraint firstItem="HcM-lu-I7s" firstAttribute="leading" secondItem="jKp-a9-lLM" secondAttribute="leading" id="iTL-l8-nxG"/>
-                        <constraint firstAttribute="bottom" secondItem="HcM-lu-I7s" secondAttribute="bottom" constant="49" id="vgX-sB-rnk"/>
+                        <constraint firstItem="HcM-lu-I7s" firstAttribute="top" secondItem="jKp-a9-lLM" secondAttribute="top" id="AfM-k2-uNB"/>
+                        <constraint firstItem="HcM-lu-I7s" firstAttribute="leading" secondItem="jKp-a9-lLM" secondAttribute="leading" id="Fd7-za-M5u"/>
+                        <constraint firstAttribute="bottom" secondItem="HcM-lu-I7s" secondAttribute="bottom" id="ZrU-S3-kzp"/>
+                        <constraint firstAttribute="trailing" secondItem="HcM-lu-I7s" secondAttribute="trailing" id="mc9-1w-kz8"/>
                     </constraints>
                 </view>
             </objects>

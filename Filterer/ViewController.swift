@@ -45,6 +45,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         originalImage = imageView.image
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         secondaryMenu.translatesAutoresizingMaskIntoConstraints = false
+        sliderMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+        sliderMenu.translatesAutoresizingMaskIntoConstraints = false
         
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("longPress:"))
         longPressGestureRecognizer.minimumPressDuration = 0.05
@@ -144,7 +146,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func onFilter(sender: UIButton) {
         if (sender.selected) {
             hideSecondaryMenu()
-            sender.selected = false
         } else {
             showSecondaryMenu()
             sender.selected = true
@@ -153,6 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func filterApply(filterName: String) {
+        editButton.enabled = true
         compareButton.enabled = true
         compareButton.selected = false
         filteredImage = imageProcessor!.apply(filterName)
@@ -181,12 +183,51 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func onEdit(sender: UIButton) {
+        if (sender.selected) {
+            hideSliderMenu()
+        } else {
+            showSliderMenu()
+        }
     }
     
     
     @IBAction func onSlider(sender: UISlider) {
     }
     
+    func showSliderMenu() {
+        editButton.selected = true
+        hideSecondaryMenu()
+        
+        view.addSubview(sliderMenu)
+        
+        let bottomConstraint = sliderMenu.bottomAnchor.constraintEqualToAnchor(bottomMenu.topAnchor)
+        let leftConstraint = sliderMenu.leftAnchor.constraintEqualToAnchor(view.leftAnchor)
+        let rightConstraint = sliderMenu.rightAnchor.constraintEqualToAnchor(view.rightAnchor)
+        let heightConstraint = sliderMenu.heightAnchor.constraintEqualToConstant(44)
+            
+        NSLayoutConstraint.activateConstraints([bottomConstraint, leftConstraint, rightConstraint, heightConstraint])
+        
+        view.layoutIfNeeded()
+        
+        self.sliderMenu.alpha = 0
+        
+        UIView.animateWithDuration(0.4) {
+            self.sliderMenu.alpha = 1.0
+        }
+    }
+    
+    func hideSliderMenu() {
+        editButton.selected = false
+        
+        UIView.animateWithDuration(0.4, animations: {
+            self.sliderMenu.alpha = 0
+            }) { completed in
+                if completed == true {
+                    self.sliderMenu.removeFromSuperview()
+                }
+        }
+        
+    }
 
     @IBAction func onCompare(sender: UIButton) {
         if (sender.selected) {
@@ -204,6 +245,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func showSecondaryMenu() {
+        filterButton.selected = true
+        hideSliderMenu()
+        
         view.addSubview(secondaryMenu)
         
         let bottomConstraint = secondaryMenu.bottomAnchor.constraintEqualToAnchor(bottomMenu.topAnchor)
@@ -222,6 +266,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func hideSecondaryMenu() {
+        filterButton.selected = false
+        
         UIView.animateWithDuration(0.4, animations: {
             self.secondaryMenu.alpha = 0
             }) { completed in
