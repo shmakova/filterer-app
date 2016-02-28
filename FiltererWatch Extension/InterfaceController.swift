@@ -11,6 +11,7 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
+    @IBOutlet var image: WKInterfaceImage!
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -28,4 +29,6 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    @IBAction func onBlueFilter() {
+    }
 }

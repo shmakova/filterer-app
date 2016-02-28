@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="FiltererWatch" customModuleProvider="target">
+                    <items>
+                        <imageView height="64" alignment="left" id="ZDa-dH-3Io"/>
+                        <separator alignment="left" id="teO-Di-9j8"/>
+                        <button width="1" alignment="left" title="New Photo" id="zT7-yH-3L6"/>
+                        <separator alignment="left" id="BS2-mh-bWK"/>
+                        <group width="1" height="37.5" alignment="left" spacing="4" id="RvF-df-Uyv">
+                            <items>
+                                <button width="0.33000000000000002" alignment="left" id="MhF-BD-AeM">
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" id="ykH-8g-rwZ">
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="onBlueFilter" destination="AgC-eL-Hgc" id="hW0-a1-i7o"/>
+                                    </connections>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" id="mdR-Gd-tpU">
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" height="37.5" alignment="left" spacing="4" id="WTQ-2w-elE">
+                            <items>
+                                <button width="0.33000000000000002" alignment="left" id="MBf-PQ-MUF">
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" id="XA6-Zy-MNk">
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </button>
+                                <button width="0.33000000000000002" alignment="left" id="Oia-af-nzx">
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="ZDa-dH-3Io" id="PtY-eg-rVF"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="245" y="143.5"/>
         </scene>
     </scenes>
 </document>
