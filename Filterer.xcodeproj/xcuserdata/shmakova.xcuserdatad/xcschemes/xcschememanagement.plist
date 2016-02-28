@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>FiltererWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Glance - FilterWatch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>3B7F595A1C817D83004100B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B7F597F1C82E361004100B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
